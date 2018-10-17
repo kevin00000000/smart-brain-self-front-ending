@@ -24,7 +24,7 @@ class Main extends Component{
 
     onDetect = () => {
         this.setState({url: this.state.input, boxes: []})
-        fetch('https://smart-brain-self.herokuapp.com/clarifai', {
+        fetch('https://smart-brain-api-self.herokuapp.com/clarifai', {
             method: 'post',
             headers: {"Content-Type": "application/json"},
             body:JSON.stringify({url: this.state.input})
@@ -36,7 +36,7 @@ class Main extends Component{
             }
         })
         .then(() => {
-            return fetch('https://smart-brain-self.herokuapp.com/entry', {
+            return fetch('https://smart-brain-api-self.herokuapp.com/entry', {
                         method: 'put',
                         headers: {"Content-Type": "application/json"},
                         body:JSON.stringify({id: this.props.user.id})
